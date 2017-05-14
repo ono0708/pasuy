@@ -17,6 +17,8 @@ calc_each_rank xs =
 pack_rank_result [] = [] 
 pack_rank_result (x:xs) = [calc_each_rank x] ++ (pack_rank_result xs) 
 
+calc_rank xs = Prelude.map calc_each_rank (toList xs)
+
 --main = do
 --    let
 --        score_map = fromList [(1001,[(1,5),(2,4),(3,3)]),(1002,[(1,2),(2,3),(3,3)])]
@@ -24,9 +26,10 @@ pack_rank_result (x:xs) = [calc_each_rank x] ++ (pack_rank_result xs)
 --        l = head score_list
 ----        res = pack_rank_result score_list
 --        res = Prelude.map calc_each_rank score_list
+--        res2 = calc_rank score_map
 --{-
 --        p = Prelude.map snd score_list
 --        b = ranking p
 ---}
 --        -- p = ranking days
---    print res
+--    print res2
